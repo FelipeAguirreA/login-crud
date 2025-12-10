@@ -46,6 +46,22 @@ export function AuthProvider({ children }: PropsWithChildren) {
       return { success: true };
     } catch (error: any) {
       console.error("Login error:", error);
+      
+      // --- Manejo de JSON inválido/servidor caído ---
+      const message = String(error);
+
+      if (
+        message.includes("Unexpected token <") ||
+        message.includes("JSON") ||
+        message.includes("invalid json") ||
+        message.includes("SyntaxError")
+      ) {
+        return {
+          success: false,
+          error: "El servidor no responde o devolvió una respuesta inválida."
+        };
+      }
+      // ------------------------------------------------------------
       return { success: false, error: error.message || "Error al iniciar sesión" };
     }
   };

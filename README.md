@@ -57,3 +57,18 @@ Abre el emulador o la app Expo Go para probar la aplicación.
 - Al ejecutar `npm run lint` se validan las reglas recomendadas por Expo.
 - La navegación está construida con Expo Router (un stack con login y home, sin pestañas).
 
+## Capturas de pantalla
+<p align="center">
+  <img src="./assets/readme/login.jpg" width="220" />
+  <img src="./assets/readme/todolist.jpg" width="220" />
+  <img src="./assets/readme/error.jpg" width="220" />
+</p>
+
+<p align="center">
+  <img src="./assets/readme/perfil.jpg" width="220" />
+  <img src="./assets/readme/agregar.jpg" width="220" />
+</p>
+
+
+## Video de Demostración
+https://www.youtube.com/watch?v=Dgk6rK0fi7o 
