@@ -2,7 +2,7 @@ import Button from "@/components/ui/button";
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
-import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Animated, { FadeInDown, FadeInUp } from 'react-native-reanimated';
 import { useAuth } from "../components/context/auth-context";
 
@@ -64,6 +64,11 @@ export default function LoginScreen() {
           />
 
           {errorMsg ? <Text style={{ color: 'red', marginBottom: 10, textAlign: 'center' }}>{errorMsg}</Text> : null}
+          <TouchableOpacity onPress={() => router.push("/registro")}>
+            <Text style={{ color: "#3b82f6", marginTop: 12, marginBottom: 12, textAlign: "center" }}>
+              ¿No tienes cuenta? Regístrate
+            </Text>
+          </TouchableOpacity>
 
           <Button text="Iniciar sesión" type="login" onPress={handleLogin} />
         </Animated.View>

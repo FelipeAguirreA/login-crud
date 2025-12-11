@@ -26,14 +26,25 @@ Abre el emulador o la app Expo Go para probar la aplicación.
 
 ## Qué incluye la app
 
-- Login con validación sobre dos usuarios permitidos (`user1@example.com`, `user2@example.com`, contraseña `1234`).
-- Persistencia de sesión en `AsyncStorage` para conservar el estado entre reinicios.
-- Lista de tareas (`app/home.tsx`) asociada al usuario autenticado; cada tarea requiere título, toma de foto (expo-image-picker) y ubicación actual (expo-location).
-- Funcionalidades para marcar tareas como completadas, eliminarlas y navegar de vuelta al login con un botón de cerrar sesión.
+- Pantalla de login con soporte para usuarios de prueba  
+  (por ejemplo `maburto@example.com`, contraseña `123456`).
+
+- Persistencia de sesión con **AsyncStorage**.
+
+- Biblioteca de tareas por usuario, cada una con:
+  - título,
+  - foto seleccionada desde la galería,
+  - ubicación actual obtenida con `expo-location`.
+
+- Acciones principales:
+  - crear tarea,
+  - marcar como completada o pendiente,
+  - eliminar,
+  - cerrar sesión y retornar al login.
 
 ## Cómo probar (casos clave)
 
-1. Abre la app y autentícate con uno de los usuarios válidos (`user1@example.com` o `user2@example.com`, contraseña `1234`).
+1. Abre la app y autentícate con uno de los usuarios válidos (por ejemplo `faguirre@example.com` o `mdaza@example.com`, contraseña `password123`).
 2. En la pantalla de tareas completa el formulario: agrega un título, selecciona una imagen y permite el acceso a la ubicación.
 3. Confirma que la nueva tarea aparece con su foto y coordenadas; alterna su estado entre completada/pendiente y elimina alguna para validar el borrado.
 4. Cierra sesión y vuelve a iniciar con el mismo usuario; las tareas deben permanecer gracias a AsyncStorage.
@@ -58,17 +69,31 @@ Abre el emulador o la app Expo Go para probar la aplicación.
 - La navegación está construida con Expo Router (un stack con login y home, sin pestañas).
 
 ## Capturas de pantalla
+### Pantalla de inicio de sesión
 <p align="center">
-  <img src="./assets/readme/login.jpeg" width="220" />
-  <img src="./assets/readme/todolist.jpeg" width="220" />
-  <img src="./assets/readme/error.jpeg" width="220" />
+  <img src="./assets/readme/login1.jpeg" width="220" />
+  <img src="./assets/readme/login2.jpeg" width="220" />
 </p>
 
+### Pantalla de registro
 <p align="center">
-  <img src="./assets/readme/perfil.jpg" width="220" />
-  <img src="./assets/readme/agregar.jpg" width="220" />
+  <img src="./assets/readme/register.jpeg" width="220" />
+  <img src="./assets/readme/register2.jpeg" width="220" />
+  <img src="./assets/readme/register3.jpeg" width="220" />
+</p>
+
+### Pantalla de inicio - Biblioteca de usuario
+<p align="center">
+  <img src="./assets/readme/todo.jpeg" width="220" />
+  <img src="./assets/readme/todo2.jpeg" width="220" />
+</p>
+
+### Pantalla para agregar libro
+<p align="center">
+  <img src="./assets/readme/add-task.jpeg" width="220" />
+  <img src="./assets/readme/add-task2.jpeg" width="220" />
 </p>
 
 
 ## Video de Demostración
-https://www.youtube.com/watch?v=Dgk6rK0fi7o 
+https://www.youtube.com/watch?v=deHgU_80WHI

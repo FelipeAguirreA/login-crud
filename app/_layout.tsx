@@ -16,12 +16,14 @@ function RootLayoutNav() {
     if (!mounted) return; // Don't navigate until mounted
 
     const isAuthenticated = !!user?.token;
-    const isOnLogin = pathname === "/login" || pathname === "/";
-
+    const isPublicRoute =
+      pathname === "/login" ||
+      pathname === "/" ||
+      pathname === "/registro";
     // Si no hay token válido, siempre forzar al login
-    if (!isAuthenticated && !isOnLogin) {
+    if (!isAuthenticated && !isPublicRoute) {
       router.replace("/login");
-    } else if (isAuthenticated && isOnLogin) {
+    } else if (isAuthenticated && isPublicRoute) {
       router.replace("/(tabs)");
     }
   }, [user, pathname, router, mounted]);
