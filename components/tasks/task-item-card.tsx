@@ -33,7 +33,28 @@ export function TaskItemCard({ item, onToggle, onDelete }: TaskItemCardProps) {
         </Text>
       ) : null}
 
-      <Image source={{ uri: item.photoUri }} style={styles.taskImage} />
+      {item.photoUri ? (
+        item.photoUri.startsWith("http")
+          ? (
+            // Si viene del backend, mostrar solo la URL como texto
+            <Text style={{ fontSize: 12, color: "#555" }}>
+              Imagen: {item.photoUri}
+            </Text>
+          )
+          : (
+            // Si es una URI local del dispositivo, mostrar la imagen
+            <Image
+              source={{ uri: item.photoUri }}
+              style={{ width: 120, height: 180, borderRadius: 8, alignSelf: "center", marginBottom: 12 }}
+            />
+          )
+      ) : (
+        <Text style={{ fontSize: 12, color: "gray" }}>
+          Sin imagen
+        </Text>
+      )}
+
+      {/* <Image source={{ uri: item.photoUri }} style={styles.taskImage} /> */}
 
       <View style={styles.taskActions}>
         <ToggleTaskButton
@@ -86,6 +107,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   bookReadBorder: {
-  borderColor: "#16a34a",
-},
+    borderColor: "#16a34a",
+  },
 })
